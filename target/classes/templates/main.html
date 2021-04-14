@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <strong>Главная</strong>
+            </a>
+            <a href="/exit">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">Выйти</button>
+            </a>
+        </div>
+    </div>
+</header>
+<div class="alert-heading align-self-md-center form-check-inline">
+<h1 name="id" >Вы вошли как:  </h1>
+    <div th:each="el: ${a}">
+
+       <h1 name="id" th:text="${el.rights.rights}"></h1>
+       <!-- <option th:value="${a}" name="id" th:text="${el}"></option>-->
+
+    </div>
+</div>
+    <div th:each="el: ${v}" class="align-self-md-center form-check-inline">
+        <form th:action="${el.getKey()}" method="get" class="">
+            <button class="form-file-button" th:text="${el.getValue()}"></button><br>
+        </form>
+
+    </div>
+</body>
+</html>

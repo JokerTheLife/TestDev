@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://ww.thymeleaf.otg">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали принятой заявки</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <strong>Главная</strong>
+            </a>
+            <a href="/exit">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">Выйти
+                </button>
+            </a>
+        </div>
+    </div>
+</header>
+
+<div class="input-group-text">
+    <p>Логин: </p>
+    <p th:text="${user.getLogin()}"></p>
+</div>
+<form th:action="'/editUser/'+${user.getId()}" method="post">
+    <div>
+        <div class="input-group-text">
+            <p class="mt-2">Права оператора</p>
+        <input class="ml-1" type="checkbox" name="roles" value="2" th:if="${checked== 'checked'}" checked>
+        <input class="ml-1" type="checkbox" name="roles" value="2" th:if="${checked== ''}">
+        <input type='hidden' value='0' name='roles'><br>
+        </div>
+        <button class="mt-3" type="submit">Сохранить</button>
+
+    </div>
+</form>
+
+</body>
+</html>

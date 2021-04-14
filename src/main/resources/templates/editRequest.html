@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns:th="http://ww.thymeleaf.otg">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали принятой заявки</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <strong>Главная</strong>
+            </a>
+            <a href="/exit">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">Выйти
+                </button>
+            </a>
+        </div>
+    </div>
+</header>
+<div class="align-content-xxl-start alert alert-dark mt-auto ml-auto mr-auto mb-auto">
+    <form method="post" accept-charset="UTF-8">
+        <p>Текст заявки</p>
+        <input required type="text" class="input-group input-text" name="request"
+               th:value="${Request.get().getRequest()}"><br><br>
+        <div class="btn-group">
+            <button type="submit" value="1" name="status">Сохранить</button>
+            <td>
+                <button type="text" value="2" name="status" class="ml-3 btn-group">Отправить</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

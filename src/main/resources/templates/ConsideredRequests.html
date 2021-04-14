@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://ww.thymeleaf.otg">
+<head>
+    <meta charset="UTF-8">
+    <title>Рассмотренные заявки</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <strong>Главная</strong>
+            </a>
+            <a href="/exit">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">Выйти
+                </button>
+            </a>
+        </div>
+    </div>
+</header>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-auto mr-auto ml-auto mt-auto">
+    <div class="col" th:each="el:${requests}">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <p class="card-text" name="id" th:text="${el.request}"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a th:href="'/request/'+ ${el.id}+'/considered'">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
